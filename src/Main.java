@@ -19,9 +19,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		Order order = new Order("Vardenis", "Pavardenis", "Lithuania", "Vilnius", "LT-09999", "Gatvė g. 5");
-		
-		order.setProducts(shop.getProducts());
+		Order order = new Order("Vardenis", "Pavardenis", "Lithuania", "Vilnius", "LT-09999", "Gatvė g. 5", shop.getProducts());
 		
 		order.addProduct(shop.findProduct("000-0-00000-000-7"));
 		order.addProduct(shop.findProduct("000-0-00000-000-7"));

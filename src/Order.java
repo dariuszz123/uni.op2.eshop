@@ -20,14 +20,14 @@ public class Order {
 	private Date createdAt;
 	private Vector<Product> products;
 
-	public Order(String name, String surname, String country, String city, String address, String postCode) {
+	public Order(String name, String surname, String country, String city, String address, String postCode, Vector<Product> products) {
 		this.setName(name);
 		this.setSurname(surname);
 		this.setCountry(country);
 		this.setCity(city);
 		this.setAddress(address);
 		this.setPostCode(postCode);
-		this.setProducts(new Vector<Product>());
+		this.setProducts(products);
 		this.setCreatedAt(new Date());
 	}
 
