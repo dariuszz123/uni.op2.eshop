@@ -38,7 +38,7 @@ public class Main {
 		order.println();
 		
 		// output total orders info
-		System.out.println("Total ordered amount: " + shop.calcTotalOrdersAmount());
+		System.out.println("Total ordered amount: " + shop.calcTotalOrdersAmount() + " " + Product.getCurrency());
 		System.out.println("Total ordered products: " + shop.calcTotalOrderedProducts());
 		
 	}
