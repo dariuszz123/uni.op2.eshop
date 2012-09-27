@@ -19,13 +19,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		Order order = new Order();
-		order.setName("Vardenis");
-		order.setSurname("Pavardenis");
-		order.setCountry("Lithuania");
-		order.setCity("Vilnius");
-		order.setPostCode("LT-09999");
-		order.setAddress("Gatvė g. 5");
+		Order order = new Order("Vardenis", "Pavardenis", "Lithuania", "Vilnius", "LT-09999", "Gatvė g. 5");
 		
 		order.setProducts(shop.getProducts());
 		
