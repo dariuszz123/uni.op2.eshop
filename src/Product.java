@@ -10,6 +10,7 @@ public class Product {
 	private String description;
 	private double price;
 	private int weight;
+	private int quantity;
 
 	private final static String currency = "LTL";
 
@@ -87,6 +88,14 @@ public class Product {
 		this.weight = weight;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 	public static String getCurrency() {
 		return currency;
 	}
@@ -98,6 +107,7 @@ public class Product {
 		System.out.println("Description: " + this.getDescription());
 		System.out.println("Price: " + this.getPrice() + " " + Product.getCurrency());
 		System.out.println("Weight: " + this.getWeight());
+		System.out.println("Quantity: " + this.getQuantity());
 	}
-
+	
 }

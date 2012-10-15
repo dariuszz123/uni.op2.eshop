@@ -10,6 +10,7 @@ public class Eshop {
 
 	private Vector<Order> orders;
 	private Vector<Product> products;
+	private Cart cart;
 
 	public Eshop() {
 		this.setOrders(new Vector<Order>());
@@ -56,8 +57,9 @@ public class Eshop {
 			throw new Exception("Product already exists!");
 		}
 	}
-
-	public void addOrder(Order order) {
+		
+	public void createOrder(String name, String surname, String country, String city, String address, String postCode) {
+		Order order = new Order(name, surname, country, city, address, postCode, this.getCart());
 		this.getOrders().add(order);
 	}
 
@@ -101,4 +103,8 @@ public class Eshop {
 		this.products = products;
 	}
 
+	public Cart getCart() {
+		return cart;
+	}
+	
 }

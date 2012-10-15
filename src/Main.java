@@ -4,7 +4,7 @@ public class Main {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Eshop shop = new Eshop();
 		
@@ -33,6 +33,6 @@ public class Main {
 		System.out.println("Total ordered amount: " + shop.calcTotalOrdersAmount() + " " + Product.getCurrency());
 		System.out.println("Total ordered products: " + shop.calcTotalOrderedProducts());
 		
-	}
+	}*/
 
 }

@@ -18,16 +18,17 @@ public class Order {
 	private String address;
 	private String postCode;
 	private Date createdAt;
-	private Vector<Product> products;
+	private Vector<OrderProduct> products;
 
-	public Order(String name, String surname, String country, String city, String address, String postCode, Vector<Product> products) {
+	public Order(String name, String surname, String country, String city, String address, String postCode, Cart cart) {
 		this.setName(name);
 		this.setSurname(surname);
 		this.setCountry(country);
 		this.setCity(city);
 		this.setAddress(address);
 		this.setPostCode(postCode);
-		this.setProducts(products);
+		this.setProducts(new Vector<OrderProduct>());
+		this.setProductsFromCart(cart);
 		this.setCreatedAt(new Date());
 	}
 
@@ -87,24 +88,33 @@ public class Order {
 		this.createdAt = createAt;
 	}
 
-	public Vector<Product> getProducts() {
+	public Vector<OrderProduct> getProducts() {
 		return products;
 	}
 
-	public void setProducts(Vector<Product> products) {
+	public void setProducts(Vector<OrderProduct> products) {
 		this.products = products;
 	}
-
-	public void addProduct(Product product) {
-		this.products.add(product);
+	
+	public void setProductsFromCart(Cart cart) {
+		Iterator<CartProduct> productsIterator = cart.getProducts().iterator();
+		while (productsIterator.hasNext()) {
+			CartProduct cartProduct;
+			cartProduct = productsIterator.next();
+			
+			OrderProduct orderProduct;
+			orderProduct = new OrderProduct(cartProduct.getIsbn(), cartProduct.getName(), cartProduct.getPrice(), cartProduct.getQuantity());
+			
+			products.add(orderProduct);
+		}
 	}
 
 	public double getTotalPrice() {
 		double amount = 0;
 
-		Iterator<Product> productsIterator = this.getProducts().iterator();
+		Iterator<OrderProduct> productsIterator = this.getProducts().iterator();
 		while (productsIterator.hasNext()) {
-			amount += productsIterator.next().getPrice();
+			amount += productsIterator.next().getTotalPrice();
 		}
 
 		return amount;
@@ -125,7 +135,7 @@ public class Order {
 				+ dateFormatter.format(this.getCreatedAt()));
 		System.out.println("Order products:");
 
-		Iterator<Product> productsIterator = this.getProducts().iterator();
+		Iterator<OrderProduct> productsIterator = this.getProducts().iterator();
 
 		while (productsIterator.hasNext()) {
 			productsIterator.next().println();
