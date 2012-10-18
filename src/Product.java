@@ -15,17 +15,18 @@ public class Product {
 	private final static String currency = "LTL";
 
 	public Product(String isbn, String name, String description, double price,
-			int weight) {
+			int weight, int quantity) {
 		this.setIsbn(isbn);
 		this.setName(name);
 		this.setDescription(description);
 		this.setPrice(price);
 		this.setWeight(weight);
+		this.setQuantity(quantity);
 	}
 
 	public Product() {
 		this("000-0-00000-000-0", "Dramblys", "Labai geras dramblys", 10.00,
-				10000);
+				10000, 10);
 	}
 
 	public String getIsbn() {

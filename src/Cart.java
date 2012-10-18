@@ -28,17 +28,31 @@ public class Cart {
 		return null;
 	}
 	
-	public boolean addProduct(Product product, int quantity) {
+	public void addProduct(Product product, int quantity) throws java.lang.Exception {
 		CartProduct cartProduct;
 		cartProduct = findProduct(product.getIsbn());
-		if(cartProduct != null) {
-			cartProduct.setQuantity(cartProduct.getQuantity() + quantity);
+		
+		if(product.getQuantity() < quantity) {
+			throw new java.lang.Exception("This quanity not available at the moment!");
 		}else{
-			cartProduct = (CartProduct) product;
-			cartProduct.setQuantity(quantity);
-			this.products.add(cartProduct);
+			if(cartProduct != null) {
+				cartProduct.setQuantity(cartProduct.getQuantity() + quantity);
+			}else{
+				cartProduct = new CartProduct(product.getIsbn(), product.getName(), product.getPrice(), product.getWeight(), quantity);
+				this.products.add(cartProduct);
+			}
+			product.setQuantity(product.getQuantity()-quantity);
 		}
-		return true;
+	}
+	
+	public void removeProduct(String isbn, Product returnQuantityToProduct) {
+		CartProduct cartProduct = this.findProduct(isbn);
+		if(cartProduct != null) {
+			if(returnQuantityToProduct != null) {
+				returnQuantityToProduct.setQuantity(returnQuantityToProduct.getQuantity() + cartProduct.getQuantity());
+			}
+			this.getProducts().remove(cartProduct);
+		}
 	}
 	
 	public double getTotalPrice() {

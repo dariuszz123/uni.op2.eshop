@@ -1,7 +1,74 @@
 
-public class CartProduct extends Product {
+public class CartProduct {
 	
+	private String isbn;
+	private String name;
+	private double price;
+	private int weight;
 	private int quantity;
+
+	private final static String currency = "LTL";
+
+	public CartProduct(String isbn, String name, double price,
+			int weight, int quantity) {
+		this.setIsbn(isbn);
+		this.setName(name);
+		this.setPrice(price);
+		this.setWeight(weight);
+		this.setQuantity(quantity);
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Price in currency like 1.99
+	 * 
+	 * @return
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * Price in currency like 1.99
+	 * 
+	 * @param price
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	/**
+	 * Weight in grams
+	 * 
+	 * @return
+	 */
+	public int getWeight() {
+		return weight;
+	}
+
+	/**
+	 * Weight in grams
+	 * 
+	 * @param weight
+	 */
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
 
 	public int getQuantity() {
 		return quantity;
@@ -11,13 +78,22 @@ public class CartProduct extends Product {
 		this.quantity = quantity;
 	}
 	
+	public static String getCurrency() {
+		return currency;
+	}
+
 	public double getTotalPrice() {
 		return this.getPrice() * this.getQuantity();
 	}
 	
 	public void println() {
-		super.println();
+		System.out.println("-=| Cart Product data |=-");
+		System.out.println("ISBN: " + this.getIsbn());
+		System.out.println("Name: " + this.getName());
+		System.out.println("Price: " + this.getPrice() + " " + Product.getCurrency());
+		System.out.println("Weight: " + this.getWeight());
+		System.out.println("Quantity: " + this.getQuantity());
 		System.out.println("Total price: " + this.getTotalPrice());
 	}
-	
+
 }

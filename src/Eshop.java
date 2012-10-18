@@ -15,6 +15,7 @@ public class Eshop {
 	public Eshop() {
 		this.setOrders(new Vector<Order>());
 		this.setProducts(new Vector<Product>());
+		this.setCart(new Cart());
 	}
 
 	public Product findProduct(String isbn) {
@@ -22,7 +23,8 @@ public class Eshop {
 
 		while (productsIterator.hasNext()) {
 			Product product = productsIterator.next();
-			if (product.getIsbn() == isbn) {
+
+			if (product.getIsbn().equals(isbn)) {
 				return product;
 			}
 		}
@@ -37,6 +39,7 @@ public class Eshop {
 
 		while (productsIterator.hasNext()) {
 			Product product = productsIterator.next();
+			
 			if (product.getPrice() == price) {
 				foundProducts.add(product);
 			}
@@ -57,10 +60,53 @@ public class Eshop {
 			throw new Exception("Product already exists!");
 		}
 	}
+	
+	public void addProduct(String isbn, String name, String description, double price,
+			int weight, int quantity) throws Exception {
+		this.addProduct(new Product(isbn, name, description, price, weight, quantity));
+	}
+	
+	public void addQuantity(Product product, int quantity) {
+		product.setQuantity(product.getQuantity() + quantity);
+	}
+	
+	private int getNextOrderNum() {
+		int num = 0;
 		
-	public void createOrder(String name, String surname, String country, String city, String address, String postCode) {
-		Order order = new Order(name, surname, country, city, address, postCode, this.getCart());
-		this.getOrders().add(order);
+		Iterator<Order> orderIterator = this.getOrders().iterator();
+		
+		while (orderIterator.hasNext()) {
+			Order order = orderIterator.next();
+			if(order.getNum() > num) {
+				num = order.getNum();
+			}
+		}
+		
+		return (num + 1);
+	}
+	
+	public void createOrder(String name, String surname, String country, String city, String address, String postCode) throws Exception {
+		
+		if(this.getCart().getProducts().size() > 0) {
+			Order order = new Order(this.getNextOrderNum(), name, surname, country, city, address, postCode, this.getCart());
+			this.getOrders().add(order);
+			this.getCart().clear();
+		}else{
+			throw new Exception("Cart is empty!");
+		}
+	}
+	
+	public Order findOrderByNum(int num) {
+		Iterator<Order> orderIterator = this.getOrders().iterator();
+
+		while (orderIterator.hasNext()) {
+			Order order = orderIterator.next();
+			if(order.getNum() == num) {
+				return order;
+			}
+		}
+		
+		return null;
 	}
 
 	public double calcTotalOrdersAmount() {
@@ -86,7 +132,7 @@ public class Eshop {
 		
 		return totalProducts;
 	}
-
+	
 	public Vector<Order> getOrders() {
 		return orders;
 	}
@@ -102,7 +148,11 @@ public class Eshop {
 	public void setProducts(Vector<Product> products) {
 		this.products = products;
 	}
-
+	
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	
 	public Cart getCart() {
 		return cart;
 	}

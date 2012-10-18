@@ -10,7 +10,8 @@ import java.util.Vector;
  * 
  */
 public class Order {
-
+	
+	private int num;
 	private String name;
 	private String surname;
 	private String country;
@@ -20,7 +21,8 @@ public class Order {
 	private Date createdAt;
 	private Vector<OrderProduct> products;
 
-	public Order(String name, String surname, String country, String city, String address, String postCode, Cart cart) {
+	public Order(int num, String name, String surname, String country, String city, String address, String postCode, Cart cart) {
+		this.setNum(num);
 		this.setName(name);
 		this.setSurname(surname);
 		this.setCountry(country);
@@ -32,6 +34,14 @@ public class Order {
 		this.setCreatedAt(new Date());
 	}
 
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -119,7 +129,18 @@ public class Order {
 
 		return amount;
 	}
+	
+	public int getTotalProductsQuantity() {
+		int amount = 0;
 
+		Iterator<OrderProduct> productsIterator = this.getProducts().iterator();
+		while (productsIterator.hasNext()) {
+			amount += productsIterator.next().getQuantity();
+		}
+
+		return amount;
+	}
+	
 	public void println() {
 		Format dateFormatter;
 		dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
