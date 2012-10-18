@@ -16,6 +16,7 @@ public class Eshop {
 		this.setOrders(new Vector<Order>());
 		this.setProducts(new Vector<Product>());
 		this.setCart(new Cart());
+		this.loadProducts();
 	}
 
 	public Product findProduct(String isbn) {
@@ -32,6 +33,20 @@ public class Eshop {
 		return null;
 	}
 
+	public void loadProducts() {
+		try {
+			this.addProduct(new Product());
+			this.addProduct(new Product("000-0-00000-000-1", "Samsung TV", "LED TV",
+					10.99, 1000, 10));
+			this.addProduct(new Product("000-0-00000-000-3", "Philips LCD", "LCD",
+					910.51, 999, 100));
+			this.addProduct(new Product("000-0-00000-000-2", "HP Laptop", "With ssd",
+					99.99, 99, 0));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Vector<Product> findProduct(double price) {
 
 		Vector<Product> foundProducts = new Vector<Product>();

@@ -46,26 +46,12 @@ public class Design extends JFrame {
 	public Design(Eshop eshop) {
 		this.setEshop(eshop);
 
-		try {
-			eshop.addProduct(new Product());
-			eshop.addProduct(new Product("000-0-00000-000-1", "TV", "LED TV",
-					10.99, 1000, 10));
-			eshop.addProduct(new Product("000-0-00000-000-3", "LCD", "LCD",
-					910.51, 999, 100));
-			eshop.addProduct(new Product("000-0-00000-000-2", "a", "asdasd",
-					99.99, 99, 0));
-			// eshop.addProduct(new Product("000-0-00000-000-7", "test", 2.25,
-			// 510, 11));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		setLayout(new BorderLayout());
 
 		/* Main window */
 		setTitle("Eshop");
 		setSize(990, 600);
-		setMinimumSize(new Dimension(800, 600));
+		setMinimumSize(new Dimension(990, 600));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -126,7 +112,8 @@ public class Design extends JFrame {
 		DefaultTableModel model = (DefaultTableModel) this.eshopProductsCartTable
 				.getModel();
 		model.getDataVector().removeAllElements();
-
+		model.fireTableDataChanged();
+		
 		Iterator<CartProduct> productsIterator = this.eshop.getCart()
 				.getProducts().iterator();
 
@@ -256,7 +243,6 @@ public class Design extends JFrame {
 					Double price = new Double(productPrice.getText());
 					Integer weight = new Integer(productWeight.getText());
 					Integer quantity = new Integer(productQuantity.getText());
-					System.out.println(productIsbn.getText());
 
 					eshop.addProduct(productIsbn.getText(),
 							productName.getText(),
@@ -711,9 +697,10 @@ public class Design extends JFrame {
 							selectedRowIndex, 0);
 					eshop.getCart()
 							.removeProduct(isbn, eshop.findProduct(isbn));
-					updateEshopCartTableRows();
+					
 					updateEshopTotalPrice();
 					updateEshopProductsTableRows();
+					updateEshopCartTableRows();
 				} else {
 					JOptionPane.showMessageDialog(null,
 							"Select product first!", "Message",
