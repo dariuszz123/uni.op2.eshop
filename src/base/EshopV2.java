@@ -71,7 +71,7 @@ public class EshopV2 extends Eshop {
     }
 	
 	public IntervalXYDataset weekSalesDataset() {
-        XYSeries series = new XYSeries("Day orders");
+        XYSeries series = new XYSeries("Day sales");
         
         Calendar cal = new GregorianCalendar();
         cal.add(Calendar.DAY_OF_MONTH, -7);

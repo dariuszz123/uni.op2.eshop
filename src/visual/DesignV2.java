@@ -65,8 +65,8 @@ public class DesignV2 extends Design {
 	private ChartPanel weekSalesChart() {
 		if(eshop instanceof EshopV2) {
 		JFreeChart chart = ChartFactory.createXYBarChart(
-	            "Week sales",
-	            "Day", 
+	            "Last 7 days sales",
+	            "Day of month", 
 	            false,
 	            Product.getCurrency(), 
 	            ((EshopV2) this.eshop).weekSalesDataset(),
