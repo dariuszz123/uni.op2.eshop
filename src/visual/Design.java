@@ -40,7 +40,7 @@ import base.SpringUtilities;
 public class Design extends JFrame {
 
 	private static final long serialVersionUID = -6326135914126279074L;
-	private Eshop eshop;
+	protected Eshop eshop;
 
 	private JTable eshopProductsListTable;
 	private JTable eshopProductsCartTable;

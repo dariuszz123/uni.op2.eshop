@@ -170,7 +170,7 @@ public class Order {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Product) {
+		if(obj instanceof Order) {
 			if(this.getNum() == ((Order)obj).getNum()) {
 				return true;
 			}else{
