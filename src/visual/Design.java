@@ -470,7 +470,7 @@ public class Design extends JFrame {
 
 		p1.add(p2, BorderLayout.LINE_END);
 		
-		p1.add(new Label("Suma " + Product.getCurrency() + ": " + this.formatDouble(order.getTotalPrice())), BorderLayout.PAGE_END);
+		p1.add(new Label("Total price " + Product.getCurrency() + ": " + this.formatDouble(order.getTotalPrice())), BorderLayout.PAGE_END);
 		
 		frame.add(p1);
 
