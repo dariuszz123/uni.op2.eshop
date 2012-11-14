@@ -1,4 +1,5 @@
 package base;
+
 /**
  * 
  * @author darius
@@ -97,38 +98,39 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	public static String getCurrency() {
 		return currency;
 	}
-	
+
 	@Override
 	public String toString() {
 		String s = new String();
-		
+
 		s.concat("-=| Cart Product data |=-");
 		s.concat("\n" + "ISBN: " + this.getIsbn());
 		s.concat("\n" + "Name: " + this.getName());
 		s.concat("\n" + "Description: " + this.getDescription());
-		s.concat("\n" + "Price: " + this.getPrice() + " " + Product.getCurrency());
+		s.concat("\n" + "Price: " + this.getPrice() + " "
+				+ Product.getCurrency());
 		s.concat("\n" + "Weight: " + this.getWeight());
 		s.concat("\n" + "Available quantity: " + this.getQuantity());
 		s.concat("\n" + "Price: " + this.getPrice());
-		
+
 		return s;
 	}
-		
+
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Product) {
-			if(this.getIsbn().equals( ((Product)obj).getIsbn())) {
+		if (obj instanceof Product) {
+			if (this.getIsbn().equals(((Product) obj).getIsbn())) {
 				return true;
-			}else{
+			} else {
 				return false;
 			}
-		}else{
+		} else {
 			return super.equals(obj);
 		}
 	}
-	
+
 }

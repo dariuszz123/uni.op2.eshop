@@ -22,7 +22,7 @@ public class Order {
 	private Date createdAt;
 	private Vector<OrderProduct> products;
 
-	public Order(int num, String name, String surname, String country, String city, String address, String postCode, Cart cart) {
+	public Order(int num, String name, String surname, String country, String city, String address, String postCode, Cart cart) throws EmptyValueException {
 		this.setNum(num);
 		this.setName(name);
 		this.setSurname(surname);
@@ -47,7 +47,10 @@ public class Order {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) throws EmptyValueException {
+		if(name.isEmpty()) {
+			throw new EmptyValueException("Name");
+		}
 		this.name = name;
 	}
 
@@ -55,7 +58,10 @@ public class Order {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
+	public void setSurname(String surname) throws EmptyValueException {
+		if(surname.isEmpty()) {
+			throw new EmptyValueException("Surname");
+		}
 		this.surname = surname;
 	}
 
@@ -63,7 +69,10 @@ public class Order {
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(String country) throws EmptyValueException {
+		if(country.isEmpty()) {
+			throw new EmptyValueException("Country");
+		}
 		this.country = country;
 	}
 
@@ -71,7 +80,10 @@ public class Order {
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(String city) throws EmptyValueException {
+		if(city.isEmpty()) {
+			throw new EmptyValueException("City");
+		}
 		this.city = city;
 	}
 
@@ -79,7 +91,10 @@ public class Order {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(String address) throws EmptyValueException {
+		if(address.isEmpty()) {
+			throw new EmptyValueException("Address");
+		}
 		this.address = address;
 	}
 
@@ -87,7 +102,10 @@ public class Order {
 		return postCode;
 	}
 
-	public void setPostCode(String postCode) {
+	public void setPostCode(String postCode) throws EmptyValueException {
+		if(postCode.isEmpty()) {
+			throw new EmptyValueException("PostCode");
+		}
 		this.postCode = postCode;
 	}
 
@@ -180,5 +198,7 @@ public class Order {
 			return super.equals(obj);
 		}
 	}
-
+	
+	
+	
 }

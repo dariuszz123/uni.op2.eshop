@@ -98,7 +98,6 @@ public class Design extends JFrame {
 		DefaultTableModel model = (DefaultTableModel) this.eshopProductsListTable
 				.getModel();
 		model.getDataVector().removeAllElements();
-		
 
 		// Add already existing products
 		Iterator<Product> productsIterator = this.eshop.getProducts()
@@ -123,7 +122,7 @@ public class Design extends JFrame {
 		DefaultTableModel model = (DefaultTableModel) this.eshopProductsCartTable
 				.getModel();
 		model.getDataVector().removeAllElements();
-		
+
 		Iterator<CartProduct> productsIterator = this.eshop.getCart()
 				.getProducts().iterator();
 
@@ -349,8 +348,8 @@ public class Design extends JFrame {
 					JOptionPane.showMessageDialog(null,
 							"Order created successfully", "Message",
 							JOptionPane.PLAIN_MESSAGE);
-				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(null, e1.getMessage(),
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, ex.getMessage(),
 							"Message", JOptionPane.PLAIN_MESSAGE);
 				}
 
@@ -434,44 +433,46 @@ public class Design extends JFrame {
 					product.getQuantity(),
 					this.formatDouble(product.getTotalPrice()) });
 		}
-		
+
 		JPanel p2 = new JPanel();
 		p2.setLayout(new SpringLayout());
 		p2.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 0));
 		int fields = 0;
-		
+
 		fields++;
 		p2.add(new JLabel("Name: "));
 		p2.add(new JLabel(order.getName()));
-		
+
 		fields++;
 		p2.add(new JLabel("Surname: "));
 		p2.add(new JLabel(order.getSurname()));
-		
+
 		fields++;
 		p2.add(new JLabel("Country: "));
 		p2.add(new JLabel(order.getCountry()));
-		
+
 		fields++;
 		p2.add(new JLabel("City: "));
 		p2.add(new JLabel(order.getCity()));
-		
+
 		fields++;
 		p2.add(new JLabel("Address: "));
 		p2.add(new JLabel(order.getAddress()));
-		
+
 		fields++;
 		p2.add(new JLabel("Post code: "));
 		p2.add(new JLabel(order.getPostCode()));
-		
+
 		SpringUtilities.makeCompactGrid(p2, fields, 2, // rows, cols
 				6, 6, // initX, initY
 				6, 6); // xPad, yPad
 
 		p1.add(p2, BorderLayout.LINE_END);
-		
-		p1.add(new Label("Total price " + Product.getCurrency() + ": " + this.formatDouble(order.getTotalPrice())), BorderLayout.PAGE_END);
-		
+
+		p1.add(new Label("Total price " + Product.getCurrency() + ": "
+				+ this.formatDouble(order.getTotalPrice())),
+				BorderLayout.PAGE_END);
+
 		frame.add(p1);
 
 		frame.setResizable(false);
@@ -600,8 +601,8 @@ public class Design extends JFrame {
 				if (selectedRowIndex >= 0) {
 
 					String str = (String) JOptionPane.showInputDialog(null,
-							"quantity: ", "quantity", JOptionPane.PLAIN_MESSAGE,
-							null, null, "1");
+							"quantity: ", "quantity",
+							JOptionPane.PLAIN_MESSAGE, null, null, "1");
 
 					Integer quantity = 0;
 
@@ -709,7 +710,7 @@ public class Design extends JFrame {
 							selectedRowIndex, 0);
 					eshop.getCart()
 							.removeProduct(isbn, eshop.findProduct(isbn));
-					
+
 					updateEshopTotalPrice();
 					updateEshopProductsTableRows();
 					updateEshopCartTableRows();
@@ -872,16 +873,16 @@ public class Design extends JFrame {
 		this.eshop = eshop;
 	}
 
-	/**
-	 * 
-	 */
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				Design ex = new Design(new Eshop());
-				ex.setVisible(true);
-			}
-		});
-	}
+//	/**
+//	 * 
+//	 */
+//	public static void main(String[] args) {
+//		SwingUtilities.invokeLater(new Runnable() {
+//			public void run() {
+//				Design ex = new Design(new Eshop());
+//				ex.setVisible(true);
+//			}
+//		});
+//	}
 
 }

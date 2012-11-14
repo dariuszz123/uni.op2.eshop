@@ -46,13 +46,15 @@ public class Cart {
 		}
 	}
 	
-	public void removeProduct(String isbn, Product returnQuantityToProduct) {
+	public void removeProduct(String isbn, Product returnQuantityToProduct) throws RuntimeException {
 		CartProduct cartProduct = this.findProduct(isbn);
 		if(cartProduct != null) {
 			if(returnQuantityToProduct != null) {
 				returnQuantityToProduct.setQuantity(returnQuantityToProduct.getQuantity() + cartProduct.getQuantity());
 			}
 			this.getProducts().remove(cartProduct);
+		}else{
+			throw new RuntimeException();
 		}
 	}
 	
