@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -26,7 +27,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpringLayout;
-import javax.swing.SwingUtilities;
+//import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -708,8 +709,14 @@ public class Design extends JFrame {
 				if (selectedRowIndex >= 0) {
 					String isbn = (String) eshopProductsCartTable.getValueAt(
 							selectedRowIndex, 0);
-					eshop.getCart()
-							.removeProduct(isbn, eshop.findProduct(isbn));
+
+					try {
+						eshop.getCart().removeProduct(isbn,
+								eshop.findProduct(isbn));
+					} catch (NoSuchElementException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage(),
+								"Warning", JOptionPane.WARNING_MESSAGE);
+					}
 
 					updateEshopTotalPrice();
 					updateEshopProductsTableRows();
@@ -873,16 +880,16 @@ public class Design extends JFrame {
 		this.eshop = eshop;
 	}
 
-//	/**
-//	 * 
-//	 */
-//	public static void main(String[] args) {
-//		SwingUtilities.invokeLater(new Runnable() {
-//			public void run() {
-//				Design ex = new Design(new Eshop());
-//				ex.setVisible(true);
-//			}
-//		});
-//	}
+	// /**
+	// *
+	// */
+	// public static void main(String[] args) {
+	// SwingUtilities.invokeLater(new Runnable() {
+	// public void run() {
+	// Design ex = new Design(new Eshop());
+	// ex.setVisible(true);
+	// }
+	// });
+	// }
 
 }

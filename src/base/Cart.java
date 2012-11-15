@@ -1,5 +1,6 @@
 package base;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Vector;
 
 public class Cart {
@@ -46,7 +47,7 @@ public class Cart {
 		}
 	}
 	
-	public void removeProduct(String isbn, Product returnQuantityToProduct) throws RuntimeException {
+	public void removeProduct(String isbn, Product returnQuantityToProduct) throws NoSuchElementException {
 		CartProduct cartProduct = this.findProduct(isbn);
 		if(cartProduct != null) {
 			if(returnQuantityToProduct != null) {
@@ -54,7 +55,7 @@ public class Cart {
 			}
 			this.getProducts().remove(cartProduct);
 		}else{
-			throw new RuntimeException();
+			throw new NoSuchElementException("CartProduct not found!");
 		}
 	}
 	

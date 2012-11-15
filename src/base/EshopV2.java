@@ -55,29 +55,25 @@ public class EshopV2 extends Eshop {
         }
 	}
 
-	private void addCustomerOrderedProducts(String customerName,
-			String customerSurname, Cart customerCart) {
+	private void addCustomerOrderedProducts(String customerName, String customerSurname, Cart customerCart) {
 
 		if (customerCart.getProducts().size() > 0) {
 
 			String customerKey = customerName + " " + customerSurname;
 
 			if (this.getCustomerOrderedProducts().containsKey(customerKey) == false) {
-				this.getCustomerOrderedProducts().put(customerKey,
-						new ArrayList<Product>());
+				this.getCustomerOrderedProducts().put(customerKey, new ArrayList<Product>());
 			}
 
-			Iterator<CartProduct> cartProductIterator = customerCart
-					.getProducts().iterator();
+			Iterator<CartProduct> cartProductIterator = customerCart.getProducts().iterator();
 
 			while (cartProductIterator.hasNext()) {
 				CartProduct cartProduct = cartProductIterator.next();
 
 				Product product = findProduct(cartProduct.getIsbn());
 
-				if (product != null) {
-					this.getCustomerOrderedProducts().get(customerKey)
-							.add(product);
+				if (product != null && this.getCustomerOrderedProducts().get(customerKey).contains(product) == false) {
+					this.getCustomerOrderedProducts().get(customerKey).add(product);
 				}
 			}
 
