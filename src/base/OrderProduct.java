@@ -1,5 +1,10 @@
 package base;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class OrderProduct {
 	
 	private String isbn;
@@ -18,6 +23,7 @@ public class OrderProduct {
 		return isbn;
 	}
 	
+	@XmlAttribute
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
@@ -26,6 +32,7 @@ public class OrderProduct {
 		return name;
 	}
 	
+	@XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -34,6 +41,7 @@ public class OrderProduct {
 		return price;
 	}
 	
+	@XmlElement
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -42,6 +50,7 @@ public class OrderProduct {
 		return quantity;
 	}
 	
+	@XmlElement
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}

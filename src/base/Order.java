@@ -5,12 +5,17 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 
  * @author darius
  * 
  */
-public class Order {
+@XmlRootElement
+public class Order implements Comparable<Order> {
 	
 	private int num;
 	private String name;
@@ -38,7 +43,8 @@ public class Order {
 	public int getNum() {
 		return num;
 	}
-
+	
+	@XmlAttribute
 	public void setNum(int num) {
 		this.num = num;
 	}
@@ -46,7 +52,8 @@ public class Order {
 	public String getName() {
 		return name;
 	}
-
+	
+	@XmlElement
 	public void setName(String name) throws EmptyValueException {
 		if(name.isEmpty()) {
 			throw new EmptyValueException("Name");
@@ -57,7 +64,8 @@ public class Order {
 	public String getSurname() {
 		return surname;
 	}
-
+	
+	@XmlElement
 	public void setSurname(String surname) throws EmptyValueException {
 		if(surname.isEmpty()) {
 			throw new EmptyValueException("Surname");
@@ -68,7 +76,8 @@ public class Order {
 	public String getCountry() {
 		return country;
 	}
-
+	
+	@XmlElement
 	public void setCountry(String country) throws EmptyValueException {
 		if(country.isEmpty()) {
 			throw new EmptyValueException("Country");
@@ -79,7 +88,8 @@ public class Order {
 	public String getCity() {
 		return city;
 	}
-
+	
+	@XmlElement
 	public void setCity(String city) throws EmptyValueException {
 		if(city.isEmpty()) {
 			throw new EmptyValueException("City");
@@ -90,7 +100,8 @@ public class Order {
 	public String getAddress() {
 		return address;
 	}
-
+	
+	@XmlElement
 	public void setAddress(String address) throws EmptyValueException {
 		if(address.isEmpty()) {
 			throw new EmptyValueException("Address");
@@ -101,7 +112,8 @@ public class Order {
 	public String getPostCode() {
 		return postCode;
 	}
-
+	
+	@XmlElement
 	public void setPostCode(String postCode) throws EmptyValueException {
 		if(postCode.isEmpty()) {
 			throw new EmptyValueException("PostCode");
@@ -112,15 +124,17 @@ public class Order {
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
+	
+	@XmlElement
 	public void setCreatedAt(Date createAt) {
 		this.createdAt = createAt;
 	}
-
+	
 	public Vector<OrderProduct> getProducts() {
 		return products;
 	}
-
+	
+	@XmlElement
 	public void setProducts(Vector<OrderProduct> products) {
 		this.products = products;
 	}
@@ -197,6 +211,12 @@ public class Order {
 		}else{
 			return super.equals(obj);
 		}
+	}
+
+	@Override
+	public int compareTo(Order o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

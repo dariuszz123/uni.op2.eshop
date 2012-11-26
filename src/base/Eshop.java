@@ -1,7 +1,5 @@
 package base;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -14,22 +12,21 @@ import java.util.Vector;
  */
 public class Eshop {
 
-	private Set<Order> orders;
-	private List<Product> products;
+	private Orders orders;
+	private Products products;
 	private Cart cart;
 
 	public Eshop() {
-		this.setOrders(new HashSet<Order>());
-		this.setProducts(new ArrayList<Product>());
+		this.setOrders(new Orders());
+		this.setProducts(new Products());
 		this.setCart(new Cart());
-		this.loadProducts();
 	}
 
 	public Set<Order> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<Order> orders) {
+	public void setOrders(Orders orders) {
 		this.orders = orders;
 	}
 
@@ -37,7 +34,7 @@ public class Eshop {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(Products products) {
 		this.products = products;
 	}
 
@@ -61,20 +58,6 @@ public class Eshop {
 		}
 
 		return null;
-	}
-
-	public void loadProducts() {
-		try {
-			this.addProduct(new Product());
-			this.addProduct(new Product("000-0-00000-000-1", "Samsung TV",
-					"LED TV", 10.99, 1000, 10));
-			this.addProduct(new Product("000-0-00000-000-3", "Philips LCD",
-					"LCD", 910.51, 999, 100));
-			this.addProduct(new Product("000-0-00000-000-2", "HP Laptop",
-					"With ssd", 99.99, 99, 0));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	public Vector<Product> findProduct(double price) {

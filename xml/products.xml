@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product isbn="000-0-00000-000-0">
+        <description>Labai geras dramblys</description>
+        <name>Dramblys</name>
+        <price>10.0</price>
+        <quantity>10</quantity>
+        <weight>10000</weight>
+    </product>
+    <product isbn="000-0-00000-000-1">
+        <description>LED TV</description>
+        <name>Samsung TV</name>
+        <price>10.99</price>
+        <quantity>10</quantity>
+        <weight>1000</weight>
+    </product>
+    <product isbn="000-0-00000-000-3">
+        <description>LCD</description>
+        <name>Philips LCD</name>
+        <price>910.51</price>
+        <quantity>100</quantity>
+        <weight>999</weight>
+    </product>
+    <product isbn="000-0-00000-000-2">
+        <description>With ssd</description>
+        <name>HP Laptop</name>
+        <price>99.99</price>
+        <quantity>100</quantity>
+        <weight>99</weight>
+    </product>
+</products>
