@@ -27,6 +27,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
 //import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -49,6 +50,30 @@ public class Design extends JFrame {
 	private Button eshopOrderButton;
 	private JTable orderOrdersTable;
 	protected JTabbedPane tabs;
+	
+	public JTable getEshopProductsListTable() {
+		return eshopProductsListTable;
+	}
+
+	public void setEshopProductsListTable(JTable eshopProductsListTable) {
+		this.eshopProductsListTable = eshopProductsListTable;
+	}
+
+	public JTable getEshopProductsCartTable() {
+		return eshopProductsCartTable;
+	}
+
+	public void setEshopProductsCartTable(JTable eshopProductsCartTable) {
+		this.eshopProductsCartTable = eshopProductsCartTable;
+	}
+
+	public JTable getOrderOrdersTable() {
+		return orderOrdersTable;
+	}
+
+	public void setOrderOrdersTable(JTable orderOrdersTable) {
+		this.orderOrdersTable = orderOrdersTable;
+	}
 
 	/**
 	 * 
@@ -95,7 +120,7 @@ public class Design extends JFrame {
 	/**
 	 * 
 	 */
-	private void updateEshopProductsTableRows() {
+	public void updateEshopProductsTableRows() {
 		DefaultTableModel model = (DefaultTableModel) this.eshopProductsListTable
 				.getModel();
 		model.getDataVector().removeAllElements();
@@ -119,7 +144,7 @@ public class Design extends JFrame {
 	/**
 	 * 
 	 */
-	private void updateEshopCartTableRows() {
+	public void updateEshopCartTableRows() {
 		DefaultTableModel model = (DefaultTableModel) this.eshopProductsCartTable
 				.getModel();
 		model.getDataVector().removeAllElements();
@@ -141,7 +166,7 @@ public class Design extends JFrame {
 	/**
 	 * 
 	 */
-	private void updateOrdersOrdersTableRows() {
+	public void updateOrdersOrdersTableRows() {
 		DefaultTableModel model = (DefaultTableModel) this.orderOrdersTable
 				.getModel();
 		model.getDataVector().removeAllElements();
@@ -857,8 +882,8 @@ public class Design extends JFrame {
 		p2.add(orderDetailsButton);
 
 		p2.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 0));
+		p2.setName("buttons_list");
 		p.add(p2, BorderLayout.LINE_END);
-
 		updateOrdersOrdersTableRows();
 
 		return p;
@@ -880,16 +905,16 @@ public class Design extends JFrame {
 		this.eshop = eshop;
 	}
 
-	// /**
-	// *
-	// */
-	// public static void main(String[] args) {
-	// SwingUtilities.invokeLater(new Runnable() {
-	// public void run() {
-	// Design ex = new Design(new Eshop());
-	// ex.setVisible(true);
-	// }
-	// });
-	// }
+	/**
+	 *
+	 */
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				Design ex = new Design(new Eshop());
+				ex.setVisible(true);
+			}
+		});
+	}
 
 }

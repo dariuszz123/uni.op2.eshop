@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<orders>
+    <order num="1">
+        <address>Didlaukio g.</address>
+        <city>Vilnius</city>
+        <country>Lietuva</country>
+        <createdAt>2012-11-25T22:13:25.063+02:00</createdAt>
+        <name>Vardenis</name>
+        <postCode>LT-0000</postCode>
+        <products isbn="000-0-00000-000-2">
+            <name>HP Laptop</name>
+            <price>99.99</price>
+            <quantity>10</quantity>
+        </products>
+        <products isbn="000-0-00000-000-3">
+            <name>Philips LCD</name>
+            <price>910.51</price>
+            <quantity>5</quantity>
+        </products>
+        <surname>Pavardenis</surname>
+    </order>
+    <order num="2">
+        <address>Didlaukio g.</address>
+        <city>Vilnius</city>
+        <country>Lietuva</country>
+        <createdAt>2012-11-27T20:13:25.063+02:00</createdAt>
+        <name>Vardenis</name>
+        <postCode>LT-0000</postCode>
+        <products isbn="000-0-00000-000-2">
+            <name>HP Laptop</name>
+            <price>99.99</price>
+            <quantity>10</quantity>
+        </products>
+        <surname>Pavardenis</surname>
+    </order>
+    <order num="3">
+        <address>Didlaukio g.</address>
+        <city>Vilnius</city>
+        <country>Lietuva</country>
+        <createdAt>2012-11-26T10:13:25.063+02:00</createdAt>
+        <name>Vardenis</name>
+        <postCode>LT-0000</postCode>
+        <products isbn="000-0-00000-000-2">
+            <name>HP Laptop</name>
+            <price>99.99</price>
+            <quantity>1</quantity>
+        </products>
+        <surname>Pavardenis</surname>
+    </order>
+    <order num="4">
+        <address>test</address>
+        <city>test</city>
+        <country>test</country>
+        <createdAt>2012-11-28T22:28:36.871+02:00</createdAt>
+        <name>test</name>
+        <postCode>test</postCode>
+        <products isbn="000-0-00000-000-3">
+            <name>Philips LCD</name>
+            <price>910.51</price>
+            <quantity>10</quantity>
+        </products>
+        <surname>test</surname>
+    </order>
+</orders>

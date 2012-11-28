@@ -5,12 +5,16 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class OrderProduct {
+public class OrderProduct implements Cloneable {
 	
 	private String isbn;
 	private String name;
 	private double price;
 	private int quantity;
+	
+	public OrderProduct() {
+		
+	}
 	
 	public OrderProduct(String isbn, String name, double price, int quantity) {
 		this.setIsbn(isbn);
@@ -61,16 +65,16 @@ public class OrderProduct {
 	
 	@Override
 	public String toString() {
-		String s = new String();
+		StringBuilder s = new StringBuilder();
 		
-		s.concat("-=| Order product data |=-");
-		s.concat("\n" + "ISBN: " + this.getIsbn());
-		s.concat("\n" + "Name: " + this.getName());
-		s.concat("\n" + "Price: " + this.getPrice() + " " + Product.getCurrency());
-		s.concat("\n" + "Quantity: " + this.getQuantity());
-		s.concat("\n" + "Total price: " + this.getTotalPrice());
+		s.append("-=| Order product data |=-");
+		s.append("\n" + "ISBN: " + this.getIsbn());
+		s.append("\n" + "Name: " + this.getName());
+		s.append("\n" + "Price: " + this.getPrice() + " " + Product.getCurrency());
+		s.append("\n" + "Quantity: " + this.getQuantity());
+		s.append("\n" + "Total price: " + this.getTotalPrice());
 		
-		return s;
+		return s.toString();
 	}
 	
 	@Override
@@ -85,4 +89,14 @@ public class OrderProduct {
 			return super.equals(obj);
 		}
 	}
+	
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			// This should never happen
+			throw new InternalError(e.toString());
+		}
+	}
+	
 }

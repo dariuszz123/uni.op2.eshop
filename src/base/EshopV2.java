@@ -104,36 +104,17 @@ public class EshopV2 extends Eshop {
 		return false;
 	}
 
-	private boolean isBeforeDay(Date d1, Date comapre_to) {
-		Calendar c1 = new GregorianCalendar();
-		c1.setTime(d1);
-		Calendar c2 = new GregorianCalendar();
-		c2.setTime(comapre_to);
-
-		if (c1.get(Calendar.YEAR) < c2.get(Calendar.YEAR)
-				|| (c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1
-						.get(Calendar.DAY_OF_YEAR) < c2
-						.get(Calendar.DAY_OF_YEAR))) {
-			return true;
-		}
-
-		return false;
-	}
-
 	public double getTotalOrdersAmountByDate(Date date) {
 		double amount = 0;
-
+		
 		Iterator<Order> ordersIterator = this.getOrders().iterator();
 		while (ordersIterator.hasNext()) {
 			Order order = ordersIterator.next();
-
+			
 			if (isSameDay(order.getCreatedAt(), date)) {
 				amount = amount + order.getTotalPrice();
 			}
 
-			if (isBeforeDay(order.getCreatedAt(), date)) {
-				break;
-			}
 		}
 
 		return amount;

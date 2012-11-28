@@ -18,14 +18,49 @@
         <description>LCD</description>
         <name>Philips LCD</name>
         <price>910.51</price>
-        <quantity>100</quantity>
+        <quantity>65</quantity>
         <weight>999</weight>
     </product>
     <product isbn="000-0-00000-000-2">
         <description>With ssd</description>
         <name>HP Laptop</name>
         <price>99.99</price>
-        <quantity>100</quantity>
+        <quantity>65</quantity>
         <weight>99</weight>
+    </product>
+    <product isbn="111-0-00000-000-1">
+        <description>Super fast</description>
+        <name>USB Flash</name>
+        <price>9.59</price>
+        <quantity>15</quantity>
+        <weight>99</weight>
+    </product>
+    <product isbn="222-0-00000-000-2">
+        <description>High-end</description>
+        <name>Creative speakers</name>
+        <price>255.0</price>
+        <quantity>6</quantity>
+        <weight>990</weight>
+    </product>
+    <product isbn="333-0-00000-000-2">
+        <description>1000 sheets per 1s.</description>
+        <name>HP printer</name>
+        <price>305.11</price>
+        <quantity>12</quantity>
+        <weight>1000</weight>
+    </product>
+    <product isbn="444-0-00000-000-2">
+        <description>Used</description>
+        <name>LG monitor</name>
+        <price>155.0</price>
+        <quantity>1</quantity>
+        <weight>1598</weight>
+    </product>
+    <product isbn="555-0-00000-000-2">
+        <description>300dpi</description>
+        <name>Logitech M-UAS1004</name>
+        <price>15.0</price>
+        <quantity>199</quantity>
+        <weight>150</weight>
     </product>
 </products>

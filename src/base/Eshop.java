@@ -2,7 +2,6 @@ package base;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.Vector;
 
 /**
@@ -22,7 +21,7 @@ public class Eshop {
 		this.setCart(new Cart());
 	}
 
-	public Set<Order> getOrders() {
+	public List<Order> getOrders() {
 		return orders;
 	}
 

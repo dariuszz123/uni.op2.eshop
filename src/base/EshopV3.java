@@ -1,6 +1,7 @@
 package base;
 
 import java.io.File;
+import java.util.Collections;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -12,11 +13,13 @@ public class EshopV3 extends EshopV2 {
 
 	public EshopV3() {
 		this.loadProductsXml();
-
+		this.loadOrdersXml();
+		
 		// save before exit
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
 				saveProductsXml();
+				saveOrdersXml();
 			}
 		}));
 
@@ -47,6 +50,39 @@ public class EshopV3 extends EshopV2 {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void loadOrdersXml() {
+		try {
+			File file = new File("xml/orders.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(this.getOrders().getClass());
+			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			Orders orders = (Orders) jaxbUnmarshaller.unmarshal(file);
+			this.setOrders(orders);
+
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void saveOrdersXml() {
+		try {
+			File file = new File("xml/orders.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(this.getOrders().getClass());
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			jaxbMarshaller.marshal(this.getOrders(), file);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void sortOrdersByNum() {
+		Collections.sort(getOrders());
+	}
+	
+	public void sortOrdersByPrice() {
+		Collections.sort(getOrders(), Order.OrderPriceComparator);
 	}
 
 }
