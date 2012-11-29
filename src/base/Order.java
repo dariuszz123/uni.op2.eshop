@@ -247,12 +247,14 @@ public class Order implements Comparable<Order>, Cloneable {
 	
 	};
 	
+	@SuppressWarnings("unchecked")
 	public Object clone() {
 		try {
 			Order order = (Order) super.clone();
 			
 			// new vector
-			order.setProducts(new Vector<OrderProduct>());
+			order.setProducts((Vector<OrderProduct>) this.getProducts().clone());
+			order.getProducts().removeAllElements();
 			
 			// clone products
 			Iterator<OrderProduct> productsIterator = this.getProducts().iterator();

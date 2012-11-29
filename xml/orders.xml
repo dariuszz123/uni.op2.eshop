@@ -61,4 +61,18 @@
         </products>
         <surname>test</surname>
     </order>
+    <order num="5">
+        <address>Address</address>
+        <city>City</city>
+        <country>Country</country>
+        <createdAt>2012-11-29T01:10:17.673+02:00</createdAt>
+        <name>Name</name>
+        <postCode>LT-0000</postCode>
+        <products isbn="555-0-00000-000-2">
+            <name>Logitech M-UAS1004</name>
+            <price>15.0</price>
+            <quantity>1</quantity>
+        </products>
+        <surname>Surname</surname>
+    </order>
 </orders>
