@@ -17,6 +17,7 @@ import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+@SuppressWarnings("serial")
 public class EshopV2 extends Eshop {
 
 	private Map<String, List<Product>> customerOrderedProducts;

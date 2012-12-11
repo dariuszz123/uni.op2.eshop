@@ -1,9 +1,11 @@
 package base;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
-public class Cart {
+@SuppressWarnings("serial")
+public class Cart implements Serializable {
 
 	private Vector<CartProduct> products;
 	

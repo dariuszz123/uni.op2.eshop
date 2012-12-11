@@ -1,5 +1,6 @@
 package base;
 
+import java.io.Serializable;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
@@ -17,8 +18,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author darius
  * 
  */
+@SuppressWarnings("serial")
 @XmlRootElement
-public class Order implements Comparable<Order>, Cloneable {
+public class Order implements Comparable<Order>, Cloneable, Serializable {
 
 	private int num;
 	private String name;

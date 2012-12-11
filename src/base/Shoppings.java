@@ -8,11 +8,11 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 
 @SuppressWarnings("serial")
 @XmlRootElement
-@XmlSeeAlso({ Orders.class })
-public class Orders extends ArrayList<Order> {
-
-	@XmlElement(name = "order")
-	public ArrayList<Order> getOrders() {
+@XmlSeeAlso({ Shopping.class })
+public class Shoppings extends ArrayList<Shopping> {
+	
+	@XmlElement(name = "shopping")
+	public Shoppings getShoppings() {
 		return this;
 	}
 	

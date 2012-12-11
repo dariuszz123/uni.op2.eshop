@@ -1,5 +1,6 @@
 package base;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
@@ -9,7 +10,8 @@ import java.util.Vector;
  * @author darius
  * 
  */
-public class Eshop {
+@SuppressWarnings("serial")
+public class Eshop implements Serializable {
 
 	private Orders orders;
 	private Products products;

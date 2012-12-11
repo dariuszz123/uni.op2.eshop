@@ -1,5 +1,7 @@
 package base;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -10,8 +12,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * 
  */
 
+@SuppressWarnings("serial")
 @XmlRootElement
-public class Product {
+public class Product implements Serializable{
 
 	private String isbn;
 	private String name;

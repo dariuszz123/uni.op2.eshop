@@ -1,13 +1,6 @@
 package base;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.Collections;
 
 import javax.xml.bind.JAXBContext;
@@ -16,32 +9,10 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 @SuppressWarnings("serial")
-public class EshopV3 extends EshopV2 implements Serializable {
+public class EshopV3 extends EshopV2 {
 
 	public EshopV3() {
-//		this.loadProductsXml();
-//		this.loadOrdersXml();
-
-		// save before exit
-//		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-//			public void run() {
-//				saveProductsXml();
-//				saveOrdersXml();
-//			}
-//		}));
-
-	}
-
-	public void save() throws FileNotFoundException, IOException {
-		ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("data/system.data"));
-		output.writeObject(this);
-		output.close();
-	}
-	
-	public EshopV3 load() throws FileNotFoundException, IOException, ClassNotFoundException {
-		ObjectInputStream input = new ObjectInputStream(new FileInputStream("data/system.data"));
-		input.close();
-		return (EshopV3) input.readObject();
+		super();
 	}
 
 	public void loadProductsXml() {

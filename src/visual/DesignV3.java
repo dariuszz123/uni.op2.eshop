@@ -4,10 +4,6 @@ import java.awt.Button;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,29 +18,8 @@ public class DesignV3 extends DesignV2 {
 
 	public DesignV3(Eshop eshop) {
 		super(eshop);
-
-		if (eshop instanceof EshopV3) {
-			this.addWindowListener(new WindowAdapter() {
-				public void windowClosing(WindowEvent w) {
-					try {
-						//((EshopV3) eshop).save();
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, e.getMessage(),
-								"Warning", JOptionPane.WARNING_MESSAGE);
-					}
-				}
-				public void windowOpened(WindowEvent e) {
-					try {
-						
-					} catch (Exception e1) {
-						JOptionPane.showMessageDialog(null, e1.getMessage(),
-								"Warning", JOptionPane.WARNING_MESSAGE);
-					}
-				}
-			});
-		}
 	}
-
+	
 	public JPanel ordersPanel() {
 		JPanel p = super.ordersPanel();
 
@@ -92,8 +67,14 @@ public class DesignV3 extends DesignV2 {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				Design ex = new DesignV3(new EshopV3());
-				ex.setVisible(true);
+				Design ex;
+				try {
+					ex = new DesignV3(new EshopV3());
+					ex.setVisible(true);
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(),
+							"Warning", JOptionPane.WARNING_MESSAGE);
+				}
 			}
 		});
 	}
