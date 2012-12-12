@@ -4,14 +4,14 @@
         <description>Labai geras dramblys</description>
         <name>Dramblys</name>
         <price>10.0</price>
-        <quantity>10</quantity>
+        <quantity>160</quantity>
         <weight>10000</weight>
     </product>
     <product isbn="000-0-00000-000-1">
         <description>LED TV</description>
         <name>Samsung TV</name>
         <price>10.99</price>
-        <quantity>10</quantity>
+        <quantity>150</quantity>
         <weight>1000</weight>
     </product>
     <product isbn="000-0-00000-000-3">
@@ -32,28 +32,28 @@
         <description>Super fast</description>
         <name>USB Flash</name>
         <price>9.59</price>
-        <quantity>15</quantity>
+        <quantity>156</quantity>
         <weight>99</weight>
     </product>
     <product isbn="222-0-00000-000-2">
         <description>High-end</description>
         <name>Creative speakers</name>
         <price>255.0</price>
-        <quantity>6</quantity>
+        <quantity>65</quantity>
         <weight>990</weight>
     </product>
     <product isbn="333-0-00000-000-2">
         <description>1000 sheets per 1s.</description>
         <name>HP printer</name>
         <price>305.11</price>
-        <quantity>12</quantity>
+        <quantity>126</quantity>
         <weight>1000</weight>
     </product>
     <product isbn="444-0-00000-000-2">
         <description>Used</description>
         <name>LG monitor</name>
         <price>155.0</price>
-        <quantity>1</quantity>
+        <quantity>156</quantity>
         <weight>1598</weight>
     </product>
     <product isbn="555-0-00000-000-2">

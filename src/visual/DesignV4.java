@@ -84,14 +84,20 @@ public class DesignV4 extends DesignV3 {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				Design ex;
+				EshopV4 eshop = null;
+				
 				try {
-					//ex = new DesignV4(new EshopV4());
-					ex = new DesignV4(EshopV4.load());
-					ex.setVisible(true);
+					eshop = EshopV4.load();
+				} catch (IOException e) {
+					eshop = new EshopV4();
+					eshop.loadProductsXml();
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage(),
 							"Warning", JOptionPane.WARNING_MESSAGE);
 				}
+				
+				ex = new DesignV4(eshop);
+				ex.setVisible(true);
 			}
 		});
 	}

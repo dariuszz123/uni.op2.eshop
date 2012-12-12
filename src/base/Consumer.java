@@ -45,7 +45,11 @@ public class Consumer implements Runnable {
 							shopping.getCity(), shopping.getAddress(),
 							shopping.getPostCode());
 					
-					eshop.getDesign().updateOrdersOrdersTableRows();
+					if(eshop.getDesign() != null) {
+						eshop.getDesign().updateOrdersOrdersTableRows();
+						eshop.getDesign().updateEshopProductsTableRows();
+					}
+					
 					System.out.println("Consumer make order!");
 				}
 			}
