@@ -7,10 +7,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+import visual.DesignV4;
+
 
 
 public class EshopV4 extends EshopV3 {
@@ -19,6 +24,25 @@ public class EshopV4 extends EshopV3 {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private transient BlockingQueue<Shopping> shoppingQueue;
+	private DesignV4 design;
+	
+	public BlockingQueue<Shopping> getShoppingQueue() {
+		return shoppingQueue;
+	}
+
+	public void setShoppingQueue(BlockingQueue<Shopping> shoppingQueue) {
+		this.shoppingQueue = shoppingQueue;
+	}
+	
+	public DesignV4 getDesign() {
+		return design;
+	}
+
+	public void setDesign(DesignV4 design) {
+		this.design = design;
+	}
 
 	public EshopV4() {
 		super();
@@ -28,8 +52,6 @@ public class EshopV4 extends EshopV3 {
 		ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("data/system.data"));
 		output.writeObject(this);
 		output.close();
-		shopingGenerator();
-		System.out.println("Test");
 	}
 	
 	public static EshopV4 load() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -39,7 +61,21 @@ public class EshopV4 extends EshopV3 {
 		return shop;
 	}
 	
-	public void shopingGenerator() {
+	public void startShopping() throws JAXBException {
+		this.shoppingQueue = new LinkedBlockingQueue<Shopping>(1);
+		System.out.println("Shopping started!");
+		
+		Shoppings shoppings;
+		File file = new File("xml/shopping.xml");
+		JAXBContext jaxbContext = JAXBContext.newInstance(Shoppings.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		shoppings = (Shoppings) jaxbUnmarshaller.unmarshal(file);
+		
+		new Thread(new Producer(this.shoppingQueue, shoppings)).start();
+		new Thread(new Consumer(this, shoppings.size())).start();
+	}
+	
+	/*public void shopingGenerator() {
 		try {
 			Shoppings shoppings = new Shoppings();
 			
@@ -71,6 +107,6 @@ public class EshopV4 extends EshopV3 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 }

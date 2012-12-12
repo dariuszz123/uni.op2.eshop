@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <shoppings>
-    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis1" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
         <product>111-0-00000-000-1</product>
         <product>333-0-00000-000-2</product>
         <product>555-0-00000-000-2</product>
     </shopping>
-    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis2" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
         <product>555-0-00000-000-2</product>
     </shopping>
-    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis3" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
         <product>111-0-00000-000-1</product>
     </shopping>
-    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis4" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+        <product>555-0-00000-000-2</product>
+    </shopping>
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis5" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+        <product>111-0-00000-000-1</product>
+        <product>333-0-00000-000-2</product>
+        <product>555-0-00000-000-2</product>
+    </shopping>
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis6" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+        <product>555-0-00000-000-2</product>
+    </shopping>
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis7" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+        <product>111-0-00000-000-1</product>
+    </shopping>
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis8" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+        <product>555-0-00000-000-2</product>
+    </shopping>
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis9" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
+        <product>111-0-00000-000-1</product>
+        <product>333-0-00000-000-2</product>
+        <product>555-0-00000-000-2</product>
+    </shopping>
+    <shopping surname="Pavardenis" postCode="LT-0000" name="Vardenis10" country="Lietuva" city="Vilnius" address="Naugarduko g. 24">
         <product>555-0-00000-000-2</product>
     </shopping>
 </shoppings>

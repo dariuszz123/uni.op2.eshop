@@ -13,6 +13,7 @@ public class EshopV3 extends EshopV2 {
 
 	public EshopV3() {
 		super();
+		//loadProductsXml();
 	}
 
 	public void loadProductsXml() {
