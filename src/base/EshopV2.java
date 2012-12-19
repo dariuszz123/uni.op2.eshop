@@ -17,25 +17,47 @@ import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Eshop version 2
+ * @author Darius Kriðtapavièius
+ *
+ */
 @SuppressWarnings("serial")
 public class EshopV2 extends Eshop {
-
+	
+	/**
+	 * Customer ordered products map
+	 */
 	private Map<String, List<Product>> customerOrderedProducts;
-
+	
+	/**
+	 * Constructor
+	 */
 	public EshopV2() {
 		super();
 		this.setCustomerOrderedProducts(new HashMap<String, List<Product>>());
 	}
-
+	
+	/**
+	 * Customer ordered products map getter
+	 * @return customer ordered products map
+	 */
 	public Map<String, List<Product>> getCustomerOrderedProducts() {
 		return customerOrderedProducts;
 	}
-
+	
+	/**
+	 * Customer ordered products map setter
+	 * @param customerOrderedProducts customer ordered products map
+	 */
 	public void setCustomerOrderedProducts(
 			Map<String, List<Product>> customerOrderedProducts) {
 		this.customerOrderedProducts = customerOrderedProducts;
 	}
 	
+	/**
+	 * Prints ordered products by each customer
+	 */
 	public void customerOrderedProductsPrint() {
         Set<Entry<String, List<Product>>> s = customerOrderedProducts.entrySet();
         Iterator<Entry<String, List<Product>>> it = s.iterator();
@@ -55,7 +77,13 @@ public class EshopV2 extends Eshop {
             
         }
 	}
-
+	
+	/**
+	 * Add customer ordered products by customer cart
+	 * @param customerName
+	 * @param customerSurname
+	 * @param customerCart
+	 */
 	private void addCustomerOrderedProducts(String customerName, String customerSurname, Cart customerCart) {
 
 		if (customerCart.getProducts().size() > 0) {
@@ -90,7 +118,13 @@ public class EshopV2 extends Eshop {
 
 		super.createOrder(name, surname, country, city, address, postCode);
 	}
-
+	
+	/**
+	 * Check if date1 and date2 is in same date
+	 * @param d1 date1
+	 * @param d2 date2
+	 * @return boolean
+	 */
 	private boolean isSameDay(Date d1, Date d2) {
 		Calendar c1 = new GregorianCalendar();
 		c1.setTime(d1);
@@ -104,7 +138,12 @@ public class EshopV2 extends Eshop {
 
 		return false;
 	}
-
+	
+	/**
+	 * Calculate total orders price by date
+	 * @param date
+	 * @return price
+	 */
 	public double getTotalOrdersAmountByDate(Date date) {
 		double amount = 0;
 		
@@ -120,7 +159,11 @@ public class EshopV2 extends Eshop {
 
 		return amount;
 	}
-
+	
+	/**
+	 * Generates quantity chart data
+	 * @return data set
+	 */
 	public PieDataset availableQuantityDataset() {
 		DefaultPieDataset result = new DefaultPieDataset();
 
@@ -132,7 +175,11 @@ public class EshopV2 extends Eshop {
 		}
 		return result;
 	}
-
+	
+	/**
+	 * Generates week sales for chart
+	 * @return data set
+	 */
 	public IntervalXYDataset weekSalesDataset() {
 		XYSeries series = new XYSeries("Day sales");
 

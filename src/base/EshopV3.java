@@ -8,14 +8,26 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+
+/**
+ * Eshop version 3
+ * @author Darius Kriðtapavièius
+ *
+ */
 @SuppressWarnings("serial")
 public class EshopV3 extends EshopV2 {
-
+	
+	/**
+	 * Constructor
+	 */
 	public EshopV3() {
 		super();
 		//loadProductsXml();
 	}
-
+	
+	/**
+	 * Load products from xml file
+	 */
 	public void loadProductsXml() {
 		try {
 			File file = new File("xml/products.xml");
@@ -29,7 +41,10 @@ public class EshopV3 extends EshopV2 {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Save products to xml file
+	 */
 	public void saveProductsXml() {
 
 		try {
@@ -44,7 +59,10 @@ public class EshopV3 extends EshopV2 {
 		}
 
 	}
-
+	
+	/**
+	 * Load orders from xml file
+	 */
 	public void loadOrdersXml() {
 		try {
 			File file = new File("xml/orders.xml");
@@ -58,7 +76,10 @@ public class EshopV3 extends EshopV2 {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Save orders to xml file
+	 */
 	public void saveOrdersXml() {
 		try {
 			File file = new File("xml/orders.xml");
@@ -71,11 +92,17 @@ public class EshopV3 extends EshopV2 {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Sort all orders by order number ASC
+	 */
 	public void sortOrdersByNum() {
 		Collections.sort(getOrders());
 	}
-
+	
+	/**
+	 * Sort all orders by order price DESC
+	 */
 	public void sortOrdersByPrice() {
 		Collections.sort(getOrders(), Order.OrderPriceComparator);
 	}

@@ -17,7 +17,11 @@ import javax.xml.bind.Unmarshaller;
 import visual.DesignV4;
 
 
-
+/**
+ * Eshop version 4
+ * @author Darius Kriðtapavièius
+ *
+ */
 public class EshopV4 extends EshopV3 {
 
 	/**
@@ -25,35 +29,73 @@ public class EshopV4 extends EshopV3 {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Shoppings queue
+	 */
 	private transient BlockingQueue<Shopping> shoppingQueue;
+	
+	/**
+	 * Design object
+	 */
 	private DesignV4 design;
 	
+	/**
+	 * Shopping queue getter
+	 * @return queue
+	 */
 	public BlockingQueue<Shopping> getShoppingQueue() {
 		return shoppingQueue;
 	}
-
+	
+	/**
+	 * Shopping queue setter
+	 * @param shoppingQueue
+	 */
 	public void setShoppingQueue(BlockingQueue<Shopping> shoppingQueue) {
 		this.shoppingQueue = shoppingQueue;
 	}
 	
+	/**
+	 * Design getter
+	 * @return design or null
+	 */
 	public DesignV4 getDesign() {
 		return design;
 	}
-
+	
+	/**
+	 * Design setter
+	 * @param design
+	 */
 	public void setDesign(DesignV4 design) {
 		this.design = design;
 	}
-
+	
+	/**
+	 * Constructor
+	 */
 	public EshopV4() {
 		super();
 	}
 	
+	/**
+	 * Save shop object to file
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void save() throws FileNotFoundException, IOException {
 		ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("data/system.data"));
 		output.writeObject(this);
 		output.close();
 	}
 	
+	/**
+	 * Loads shop object from file
+	 * @return Eshop object
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static EshopV4 load() throws FileNotFoundException, IOException, ClassNotFoundException {
 		ObjectInputStream input = new ObjectInputStream(new FileInputStream("data/system.data"));
 		EshopV4 shop = (EshopV4) input.readObject();
@@ -61,6 +103,10 @@ public class EshopV4 extends EshopV3 {
 		return shop;
 	}
 	
+	/**
+	 * Start simulates threads shopping
+	 * @throws JAXBException
+	 */
 	public void startShopping() throws JAXBException {
 		this.shoppingQueue = new LinkedBlockingQueue<Shopping>(1);
 		System.out.println("Shopping started!");
